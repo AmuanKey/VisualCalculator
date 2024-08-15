@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.cal-body{
+    background-color: #3C3D37;
+    width: fit-content;
+    
+}
+.display-container, .btn-container{
+    background-color: #697565;
+    margin: 5px;
+    padding: 3px;
+}
+.display{
+    background-color: #ECDFCC;
+    height: 2.5rem;
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    text-align: right;
+    padding: 0 5px;
+}
+.btn{
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+    line-height: 1.5rem;
+    cursor: pointer;
+    background-color: #FB773C;
+   
+} 
+.btn-c{
+    padding: 1px;
+    font-size: 2rem;
+    margin:3px 0 5px 12px;
+    cursor: pointer;
+    background-color: #D95F59;
+}
+.num-container{
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
