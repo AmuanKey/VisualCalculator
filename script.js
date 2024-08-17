@@ -15,9 +15,7 @@ function devide(a,b){
 
 
 
-let firstNumber ;
-let secondNumber ;
-let theOperator ;
+
 
 function operate(a,b,operator){
     switch (operator) {
@@ -43,14 +41,57 @@ let btnarr = [...buttons];
 let display = document.querySelector(".display");
 let nums = btnarr.slice(6);
 
-let clickNum = "";
+let clickNum = "not changed";
 let operator = "";
-nums.map((num)=>{
+btnarr.map((num)=>{
    num.addEventListener("click",(e)=>{
-       clickNum += e.target.value;
-       display.innerText = clickNum;
-       console.log(clickNum);
+    let value = e.target.value;
+    if (value == "+" || value == "-" || value == "x" || value == "/" ) {
+        giveOperator(value);
+    }
+    else if(value == "="){
+        return;
+    }
+    else {
+        appendNumber(value);
+        updateDisplay();
+    }
+     
+       
    });
 
 });
+
+function giveOperator(value){
+operator += value;
+
+}
+console.log(operator);
+function appendNumber(number){
+clickNum += number;
+
+firstNumber = clickNum;
+
+}
+console.log(clickNum);
+function calculate(){
+   
+}
+
+function updateDisplay(){
+    display.innerText = clickNum;
+}
+
+
+let test = 12;
+let testbtn= document.querySelector("#test");
+function  paound(){
+    test += 12;
+   
+}
+console.log(test);
+testbtn.addEventListener("click",paound);
+
+
+
 
