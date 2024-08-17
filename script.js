@@ -16,82 +16,84 @@ function devide(a,b){
 
 
 
-
 function operate(a,b,operator){
     switch (operator) {
         case '+':
-            add(a,b)
+            return a+b;
             break;
         case '-':
-            subtract(a,b)
+            return a-b;
             break;
-        case '*':
-            multiply(a,b)
+        case 'x':
+            return a*b;
             break;
         case '/':
-            devide(a,b)
+            return a/b;
             break;
         default:
             break;
     }
 }
 
-let buttons = document.querySelectorAll(".btn");
-let btnarr = [...buttons];
-let display = document.querySelector(".display");
-let nums = btnarr.slice(6);
 
-let clickNum = "not changed";
+let firstNum = "" ;
+let secondNum ="";
 let operator = "";
-btnarr.map((num)=>{
-   num.addEventListener("click",(e)=>{
-    let value = e.target.value;
-    if (value == "+" || value == "-" || value == "x" || value == "/" ) {
-        giveOperator(value);
-    }
-    else if(value == "="){
-        return;
-    }
-    else {
-        appendNumber(value);
-        updateDisplay();
-    }
-     
-       
-   });
 
-});
+
+
+console.log("chekcking firstnumber on the screen ",firstNum);
+function appendNumber(number){
+
+ 
+  
+   
+    if (operator == "" ) {
+        
+        firstNum += number;
+        
+         
+     } else {
+        secondNum += number; 
+     }
+     
+
+   }
+    
+
 
 function giveOperator(value){
-operator += value;
-
+    operator =value;
 }
-console.log(operator);
-function appendNumber(number){
-clickNum += number;
+let result;
 
-firstNumber = clickNum;
-
-}
-console.log(clickNum);
-function calculate(){
+function run(){
+    if(firstNum == undefined || firstNum == ""){
+        return;
+    }
+   let a = parseFloat(firstNum);
+   let b = parseFloat(secondNum);
+   console.log(a,operator,b);
    
+
+result = operate(a,b,operator);
+console.log("result "+result);
+
+setback();
 }
 
-function updateDisplay(){
-    display.innerText = clickNum;
+function setback(){
+    operator ="";
+    secondNum = "";
+    firstNum = "";
+    
+    firstNum+= result;
+
+    result=0;
 }
-
-
-let test = 12;
-let testbtn= document.querySelector("#test");
-function  paound(){
-    test += 12;
-   
+function test(){
+    console.log("checking result ", result ,typeof(result));
+    console.log("first num " ,firstNum);
+    console.log("second num  ", secondNum);
+    console.log("operator  ", operator)
 }
-console.log(test);
-testbtn.addEventListener("click",paound);
-
-
-
-
