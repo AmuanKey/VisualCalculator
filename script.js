@@ -35,27 +35,43 @@ function operate(a,b,operator){
     }
 }
 
-
+let display = document.querySelector(".display");
 let firstNum = "" ;
 let secondNum ="";
 let operator = "";
 
-
+function go(){
+    console.log("first number ",firstNum, firstNum.length);
+    console.log("second number ",secondNum);
+    console.log("operator ",operator);
+}
 
 console.log("chekcking firstnumber on the screen ",firstNum);
 function appendNumber(number){
-
- 
-  
-   
+   console.log(firstNum);
     if (operator == "" ) {
+        if(firstNum.length > 8){
+             firstNum = firstNum.slice(0,8);
+             updateDisplay(firstNum);
+        }else{
+            firstNum += number;
+            updateDisplay(firstNum);
+        }
         
-        firstNum += number;
+       
         
          
-     } else {
-        secondNum += number; 
-     }
+     } else if(operator != "" && firstNum != ""){ {
+        if(secondNum.length > 8){
+            secondNum = secondNum.slice(0,8);
+            updateDisplay(secondNum);
+        }else{
+            secondNum += number; 
+            updateDisplay(secondNum);
+        }
+     
+        
+     }}
      
 
    }
@@ -64,36 +80,56 @@ function appendNumber(number){
 
 function giveOperator(value){
     operator =value;
+    run(value);
 }
 let result;
 
-function run(){
-    if(firstNum == undefined || firstNum == ""){
+function run(equal){
+    if(firstNum == "" || secondNum == ""){
         return;
-    }
+    }else{
    let a = parseFloat(firstNum);
    let b = parseFloat(secondNum);
    console.log(a,operator,b);
    
 
 result = operate(a,b,operator);
-console.log("result "+result);
+console.log("result "+result, result.toString().length);
+let resultstring = result.toString();
+if(resultstring.length > 8){
+updateDisplay(resultstring.slice(0,8));
+}else{
+updateDisplay(resultstring);}
+
 
 setback();
-}
+if ( equal!= "=") {
+    operator = equal;
+  }
+}}
+
+
+
+
 
 function setback(){
     operator ="";
-    secondNum = "";
+    secondNum="";
     firstNum = "";
     
     firstNum+= result;
 
     result=0;
 }
-function test(){
-    console.log("checking result ", result ,typeof(result));
-    console.log("first num " ,firstNum);
-    console.log("second num  ", secondNum);
-    console.log("operator  ", operator)
+
+function updateDisplay(text){
+display.innerText = text;
+
 }
+
+function test(){
+    setback();
+updateDisplay("");
+}
+
+
