@@ -52,10 +52,10 @@ function appendNumber(number){
     if (operator == "" ) {
         if(firstNum.length > 8){
              firstNum = firstNum.slice(0,8);
-             updateDisplay(firstNum);
+             updateDisplay(parseFloat(firstNum));
         }else{
             firstNum += number;
-            updateDisplay(firstNum);
+            updateDisplay(parseFloat(firstNum));
         }
         
        
@@ -64,10 +64,10 @@ function appendNumber(number){
      } else if(operator != "" && firstNum != ""){ {
         if(secondNum.length > 8){
             secondNum = secondNum.slice(0,8);
-            updateDisplay(secondNum);
+            updateDisplay(parseFloat(secondNum));
         }else{
             secondNum += number; 
-            updateDisplay(secondNum);
+            updateDisplay(parseFloat(secondNum));
         }
      
         
